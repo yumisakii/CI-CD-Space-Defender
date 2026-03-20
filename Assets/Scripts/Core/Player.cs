@@ -17,8 +17,25 @@ namespace SpaceDefender.Core
             if (Health < 0) Health = 0;
         }
 
-        public void Heal(int amount) { /* TODO: Health max = 100 */ }
-        public void AddScore(int points) { /* TODO */ }
-        public void LoseLife() { /* TODO */ }
+        public void Heal(int amount)
+        {
+            if (amount < 0) return;
+
+            Health += amount;
+
+            if(Health > 100) Health = 100;
+        }
+
+        public void AddScore(int points)
+        {
+            if (points < 0) return;
+            Score += points;
+        }
+        public void LoseLife()
+        {
+            Lives -= 1;
+
+            if (Lives < 0) Lives = 0;
+        }
     }
 }
